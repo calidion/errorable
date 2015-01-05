@@ -7,6 +7,7 @@ a standard error library for web functions and http response.
 
  ERR CODE FORMAT:
 
+
 ```
  0x[31-24][23-16][15-8][7-0]
 ```
@@ -19,7 +20,7 @@ a standard error library for web functions and http response.
 
 # Usage:
 
-```web
+```javascript
 
 //Basice usage
 
