@@ -5,7 +5,7 @@ web-errors
 
 a standard error library for web functions and http response.
 
- ERR CODE FORMAT:
+# ERR CODE FORMAT:
 
 ```
  0x[31-24][23-16][15-8][7-0]
@@ -17,20 +17,40 @@ a standard error library for web functions and http response.
 * [24-31]bit: ENTITY Code
 
 
+# Standard Errors(Current)
+
+ ## SUCCESS
+ ## FAILURE
+ ## UNKNOWN_ERROR
+ ## DATABASE_ERROR
+ ## USER_EXISTED
+ ## USER_NOT_FOUND
+ ## USER_NOT_LOGIN
+
+
 # Usage:
 
-```web
 
-//Basice usage
+1. Basic usage (the standard errors)
+
+```javascript
 
 var webErrors = require('web-errors');
 var errors = webErrors.errors;
 
 req.json(errors.UNKNOWN_ERR);
 
+```
 
 
-//Customize User Errors
+2. Locales can be changed
+webErrors.setLocale('en');
+webErrors.setLocale('zh-CN');
+
+
+3. Customize user-defined errors
+
+```javascript
 var customEntities = {
     ENTITY1: 1,
     ENTITY2: 2,
@@ -56,16 +76,14 @@ var customMessage = "MY ERROR!";
 var customKey = 'MY_ERROR'
 webErrors.add(customKey, customCode, customMessage)
 
+```
 
+4. Locales can be customized too
+
+```javascript
 var customLocaleMessage = "我的错误!";
 var customLocale = 'zh-CN';
 
 webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale);
-
-
-//Locales can be changed
-webErrors.setLocale('en');
-webErrors.setLocale('zh-CN');
-
 ```
 
