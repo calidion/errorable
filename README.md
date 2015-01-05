@@ -1,5 +1,6 @@
 node-error
-==========
+
+ [![Build Status][travis-image]][travis-url]
 
 a standard error library for node functions and http response.
 
