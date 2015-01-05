@@ -1,6 +1,7 @@
 node-error
 
  [![Build Status][travis-image]][travis-url]
+ [![Build Status](https://travis-ci.org/calidion/node-error.svg)](https://travis-ci.org/calidion/node-error)
 
 a standard error library for node functions and http response.
 
