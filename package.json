@@ -1,0 +1,32 @@
+{
+  "name": "node-error",
+  "version": "0.0.1",
+  "description": "Standard error for node programs and express programs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calidion/node-error.git"
+  },
+  "keywords": [
+    "node",
+    "error",
+    "i18n",
+    "express",
+    "request",
+    "standard",
+    "node-error"
+  ],
+  "author": "calidion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calidion/node-error/issues"
+  },
+  "homepage": "https://github.com/calidion/node-error",
+  "dependencies": {
+    "mocha": "^2.1.0",
+    "validator": "^3.27.0"
+  }
+}
