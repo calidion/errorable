@@ -9,10 +9,10 @@ a standard error library for node functions and http response.
  0x[31-24][23-16][15-8][7-0]
 ```
 
-* [0-7]bit : ENTITY Code
-* [8-15]bit: ENTITY / PROPERTY Code
-* [16-23]bit: EVENT Code
-* [24-31]bit: ERROR TYPE Code
+* [0-7]bit : ERROR TYPE Code
+* [8-15]bit: EVENT Code
+* [16-23]bit: ENTITY / PROPERTY Code
+* [24-31]bit: ENTITY Code
 
 
 # Usage:
@@ -21,7 +21,7 @@ a standard error library for node functions and http response.
 
 //Basice usage
 
-var nodeError = require('node-error);
+var nodeError = require('node-error');
 var errors = nodeError.errors;
 
 req.json(errors.UNKNOWN_ERR);
