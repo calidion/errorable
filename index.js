@@ -12,7 +12,7 @@
 
 var errors = require('./errors');
 var util = require('./lib/util');
-var nodeError = {
+var webError = {
   locale: 'en',
   setLocale: function(locale) {
     this.locale = locale;
@@ -26,7 +26,7 @@ var nodeError = {
   make: util.customeMake,
   add: function(name, code, message) {
     if (util.add(name, code, message)) {
-      nodeError.errors[name] = {
+      webError.errors[name] = {
         code: code,
         message: message
       };
@@ -36,8 +36,8 @@ var nodeError = {
   },
   updateLocaleItem: function(name, value, locale) {
     if (util.updateLocaleItem(name, value, locale)) {
-      if (nodeError.locale == locale) {
-        nodeError.errors = nodeError.setLocale(locale);
+      if (webError.locale == locale) {
+        webError.errors = webError.setLocale(locale);
       }
       return true;
     }
@@ -45,7 +45,7 @@ var nodeError = {
   }
 };
 
-nodeError.errors = nodeError.setLocale(nodeError.locale);
+webError.errors = webError.setLocale(webError.locale);
 
 
-module.exports = nodeError;
+module.exports = webError;
