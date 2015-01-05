@@ -20,13 +20,13 @@ a standard error library for web functions and http response.
 
 # Standard Errors(Current)
 
- ## SUCCESS
- ## FAILURE
- ## UNKNOWN_ERROR
- ## DATABASE_ERROR
- ## USER_EXISTED
- ## USER_NOT_FOUND
- ## USER_NOT_LOGIN
+#### SUCCESS
+#### FAILURE
+#### UNKNOWN_ERROR
+#### DATABASE_ERROR
+#### USER_EXISTED
+#### USER_NOT_FOUND
+#### USER_NOT_LOGIN
 
 
 # Usage:
