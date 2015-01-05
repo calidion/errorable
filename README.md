@@ -1,9 +1,9 @@
-node-error
+web-errors
 ============
 
- [![Build Status](https://travis-ci.org/calidion/node-error.svg)](https://travis-ci.org/calidion/node-error)
+ [![Build Status](https://travis-ci.org/calidion/web-errors.svg)](https://travis-ci.org/calidion/web-errors)
 
-a standard error library for node functions and http response.
+a standard error library for web functions and http response.
 
  ERR CODE FORMAT:
 
@@ -19,12 +19,12 @@ a standard error library for node functions and http response.
 
 # Usage:
 
-```node
+```web
 
 //Basice usage
 
-var nodeError = require('node-error');
-var errors = nodeError.errors;
+var webErrors = require('web-errors');
+var errors = webErrors.errors;
 
 req.json(errors.UNKNOWN_ERR);
 
@@ -47,25 +47,25 @@ var customEntities = {
     ERROR3: 3
   };
 
-var customCode = nodeError.make(customEntities.ENTITY1,
+var customCode = webErrors.make(customEntities.ENTITY1,
   customEntities.ENTITY2,
   customEvents.EVENT1,
   customErrors.ERROR1);
 
 var customMessage = "MY ERROR!";
 var customKey = 'MY_ERROR'
-nodeError.add(customKey, customCode, customMessage)
+webErrors.add(customKey, customCode, customMessage)
 
 
 var customLocaleMessage = "我的错误!";
 var customLocale = 'zh-CN';
 
-nodeError.updateLocaleItem(customMessage, customLocaleMessage, customLocale);
+webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale);
 
 
 //Locales can be changed
-nodeError.setLocale('en');
-nodeError.setLocale('zh-CN');
+webErrors.setLocale('en');
+webErrors.setLocale('zh-CN');
 
 ```
 

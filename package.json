@@ -1,5 +1,5 @@
 {
-  "name": "web-error",
+  "name": "web-errors",
   "version": "0.0.1",
   "description": "Standard error for web programs or express programs",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/calidion/web-error.git"
+    "url": "https://github.com/calidion/web-errors.git"
   },
   "keywords": [
     "web",
@@ -17,14 +17,14 @@
     "express",
     "request",
     "standard",
-    "web-error"
+    "web-errors"
   ],
   "author": "calidion",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/calidion/web-error/issues"
+    "url": "https://github.com/calidion/web-errors/issues"
   },
-  "homepage": "https://github.com/calidion/web-error",
+  "homepage": "https://github.com/calidion/web-errors",
   "dependencies": {
     "mocha": "^2.1.0",
     "validator": "^3.27.0"
