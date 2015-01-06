@@ -96,3 +96,8 @@ var customLocale = 'zh-CN';
 webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale);
 ```
 
+# How to Contribute
+
+##You can add your common entities and event into defines directory
+##You can add common errors into errors directory
+##You can add translated error messages into i18n directory in a js file named by its locale.
