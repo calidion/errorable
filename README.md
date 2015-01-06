@@ -38,7 +38,7 @@ npm install web-errors
 
 # Usage:
 
-1. Basic usage (the standard errors)
+#### Basic usage (the standard errors)
 
 ```javascript
 
@@ -50,12 +50,12 @@ req.json(errors.UNKNOWN_ERR);
 ```
 
 
-2. Locales can be changed
+#### Locales can be changed
 webErrors.setLocale('en');
 webErrors.setLocale('zh-CN');
 
 
-3. Customize user-defined errors
+#### Customize user-defined errors
 
 ```javascript
 var customEntities = {
@@ -85,7 +85,7 @@ webErrors.add(customKey, customCode, customMessage)
 
 ```
 
-4. Locales can be customized too
+#### Locales can be customized too
 
 ```javascript
 var customLocaleMessage = "我的错误!";
