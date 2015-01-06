@@ -29,6 +29,13 @@ a standard error library for web functions and http response.
 #### USER_NOT_LOGIN
 
 
+# Install
+
+```bash
+npm install web-errors
+```
+
+
 # Usage:
 
 1. Basic usage (the standard errors)
