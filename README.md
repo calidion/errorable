@@ -51,9 +51,11 @@ req.json(errors.UNKNOWN_ERR);
 
 
 #### Locales can be changed
+
+```javascript
 webErrors.setLocale('en');
 webErrors.setLocale('zh-CN');
-
+```
 
 #### Customize user-defined errors
 
