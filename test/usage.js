@@ -1,23 +1,23 @@
 var assert = require('assert')
-  , webError = require('../index'), validator = require('validator');
+  , webErrors = require('../index'), validator = require('validator');
 
 describe('web Error Test', function () {
 
   it('should have basic info', function () {
-    assert.equal(typeof webError.locale != 'undefined', true);
-    assert.equal(webError.add instanceof Function, true);
-    assert.equal(webError.setLocale instanceof Function, true);
-    assert.equal(webError.updateLocaleItem instanceof Function, true);
-    assert.equal(webError.make instanceof Function, true);
-    assert.equal(typeof webError.errors == 'object', true);
-    assert.equal(typeof webError.errors.SUCCESS == 'object', true);
-    assert.equal(typeof webError.errors.FAILURE == 'object', true);
-    assert.equal(typeof webError.errors.UNKNOWN_ERROR == 'object', true);
+    assert.equal(typeof webErrors.locale != 'undefined', true);
+    assert.equal(webErrors.add instanceof Function, true);
+    assert.equal(webErrors.setLocale instanceof Function, true);
+    assert.equal(webErrors.updateLocaleItem instanceof Function, true);
+    assert.equal(webErrors.make instanceof Function, true);
+    assert.equal(typeof webErrors.errors == 'object', true);
+    assert.equal(typeof webErrors.errors.SUCCESS == 'object', true);
+    assert.equal(typeof webErrors.errors.FAILURE == 'object', true);
+    assert.equal(typeof webErrors.errors.UNKNOWN_ERROR == 'object', true);
   });
 
   it('should have basic structure', function () {
-    for (var k in webError.errors) {
-      var v = webError.errors[k];
+    for (var k in webErrors.errors) {
+      var v = webErrors.errors[k];
       assert.equal(typeof v.code != 'undefined', true);
       assert.equal(validator.isNumeric(v.code), true);
       assert.equal(typeof v.message == 'string', true);
@@ -25,8 +25,8 @@ describe('web Error Test', function () {
   });
 
   it('should have basic structures', function () {
-    for (var k in webError.errors) {
-      var v = webError.errors[k];
+    for (var k in webErrors.errors) {
+      var v = webErrors.errors[k];
       assert.equal(typeof v.code != 'undefined', true);
       assert.equal(validator.isNumeric(v.code), true);
       assert.equal(typeof v.message != 'undefined', true);
@@ -36,15 +36,15 @@ describe('web Error Test', function () {
 
   it('should have i18n ability', function () {
     var locale = 'zh-CN'
-    var util = require('./../lib/util');
-    var v = util.lang('Success!', 'zh-CN');
-    assert(util.lang('Success!', 'zh-CN') == '成功!', true);
+    var lang = webErrors.lang;
+    var v = lang('Success!', 'zh-CN');
+    assert(lang('Success!', 'zh-CN') == '成功!', true);
 
-    var localErrors = webError.setLocale(locale);
-    var enErrors = webError.setLocale('en');
+    var localErrors = webErrors.setLocale(locale);
+    var enErrors = webErrors.setLocale('en');
     for (var key in enErrors) {
       assert(localErrors[key].code == enErrors[key].code, true);
-      assert(localErrors[key].message == util.lang(enErrors[key].message, locale), true);
+      assert(localErrors[key].message == lang(enErrors[key].message, locale), true);
     }
   });
 
@@ -65,7 +65,7 @@ describe('web Error Test', function () {
       ERROR3: 3
     };
 
-  var customCode = webError.make(customEntities.ENTITY1,
+  var customCode = webErrors.make(customEntities.ENTITY1,
     customEntities.ENTITY2,
     customEvents.EVENT1,
     customErrors.ERROR1);
@@ -75,24 +75,24 @@ describe('web Error Test', function () {
   var customLocale = 'zh-CN';
 
   it('should be able to be customized', function () {
-    assert.equal(webError.add('SUCCESS', customCode, customMessage), false);
-    assert.equal(webError.add(customKey, customCode, customMessage), true);
-    assert.equal(webError.errors[customKey].code == customCode, true);
-    assert.equal(webError.errors[customKey].message == customMessage, true);
+    assert.equal(webErrors.add('SUCCESS', customCode, customMessage), false);
+    assert.equal(webErrors.add(customKey, customCode, customMessage), true);
+    assert.equal(webErrors.errors[customKey].code == customCode, true);
+    assert.equal(webErrors.errors[customKey].message == customMessage, true);
   });
 
 
   //
   it('should be able to be customized by locale', function () {
-    webError.setLocale('en');
-    assert.equal(webError.updateLocaleItem(), false);
-    assert.equal(webError.updateLocaleItem(customMessage), false);
-    assert.equal(webError.updateLocaleItem(customMessage, customLocaleMessage), false);
-    assert.equal(webError.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
-    assert.equal(webError.errors[customKey].message != customLocaleMessage, true);
-    webError.setLocale(customLocale);
-    assert.equal(webError.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
-    assert.equal(webError.errors[customKey].message == customLocaleMessage, true);
+    webErrors.setLocale('en');
+    assert.equal(webErrors.updateLocaleItem(), false);
+    assert.equal(webErrors.updateLocaleItem(customMessage), false);
+    assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage), false);
+    assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
+    assert.equal(webErrors.errors[customKey].message != customLocaleMessage, true);
+    webErrors.setLocale(customLocale);
+    assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
+    assert.equal(webErrors.errors[customKey].message == customLocaleMessage, true);
   });
 
 });

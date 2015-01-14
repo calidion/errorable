@@ -1,0 +1,30 @@
+{
+  "name": "web-errors",
+  "main": "web-errors.js",
+  "version": "0.0.2",
+  "homepage": "https://github.com/calidion/web-errors",
+  "description": "web common errors to be standardized",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "web",
+    "errors",
+    "standard",
+    "restful",
+    "http",
+    "https",
+    "websocket"
+  ],
+  "authors": [
+    "calidion<calidion@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

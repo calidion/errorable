@@ -25,8 +25,16 @@
     "url": "https://github.com/calidion/web-errors/issues"
   },
   "homepage": "https://github.com/calidion/web-errors",
-  "dependencies": {
-    "mocha": "^2.1.0",
-    "validator": "^3.27.0"
+  "devDependencies": {
+    "mocha": "latest",
+    "istanbul": "latest",
+    "jshint": "latest",
+    "uglify-js": "latest",
+    "coveralls": "latest",
+    "contextify": "latest"
+  },
+  "scripts": {
+    "test": "_mocha --reporter spec",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   }
 }
