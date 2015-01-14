@@ -1,5 +1,5 @@
 var assert = require('assert')
-  , webErrors = require('../index'), validator = require('validator');
+  , webErrors = require('../web-errors'), validator = require('validator');
 
 describe('web Error Test', function () {
 
