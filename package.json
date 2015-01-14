@@ -1,6 +1,6 @@
 {
   "name": "web-errors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Standard error for web programs or express programs",
   "main": "index.js",
   "scripts": {
