@@ -29,7 +29,8 @@
   } else if (typeof define === 'function' && typeof define.amd === 'object') {
     define(definition);
   } else {
-    this[name] = definition();
+    var obj = this || window;
+    obj[name] = definition();
   }
 })('webErrors', function (webErrors) {
   /*
