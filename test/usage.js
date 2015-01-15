@@ -94,4 +94,15 @@ describe('web Error Test', function () {
     assert.equal(webErrors.errors[customKey].message === customLocaleMessage, true);
   });
 
+  it('should have equivalent translations', function () {
+    var enErrors = webErrors.setLocale('en');
+    for(var locale in webErrors.locales) {
+      if (locale === 'en') continue;
+
+      for(var k in enErrors) {
+        assert.equal(true, !!webErrors.locales[locale][enErrors[k].message]);
+      }
+    }
+  });
+
 });

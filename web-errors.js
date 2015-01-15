@@ -372,6 +372,7 @@
   };
 
   webErrors.lang = util.lang;
+  webErrors.locales = locales;
 
   webErrors.errors = webErrors.setLocale(webErrors.locale);
   return webErrors;
