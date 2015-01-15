@@ -4,7 +4,8 @@
   "description": "Standard error for web programs or express programs",
   "main": "web-errors.js",
   "scripts": {
-    "test": "mocha"
+    "test": "_mocha --reporter spec",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -26,15 +27,12 @@
   },
   "homepage": "https://github.com/calidion/web-errors",
   "devDependencies": {
-    "mocha": "latest",
+    "contextify": "latest",
+    "coveralls": "latest",
     "istanbul": "latest",
     "jshint": "latest",
+    "mocha": "latest",
     "uglify-js": "latest",
-    "coveralls": "latest",
-    "contextify": "latest"
-  },
-  "scripts": {
-    "test": "_mocha --reporter spec",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "validator": "^3.27.0"
   }
 }
