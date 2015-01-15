@@ -2,49 +2,48 @@ var assert = require('assert')
   , webErrors = require('../web-errors'), validator = require('validator');
 
 describe('web Error Test', function () {
-
+  'use strict';
   it('should have basic info', function () {
-    assert.equal(typeof webErrors.locale != 'undefined', true);
+    assert.equal(typeof webErrors.locale !==  'undefined', true);
     assert.equal(webErrors.add instanceof Function, true);
     assert.equal(webErrors.setLocale instanceof Function, true);
     assert.equal(webErrors.updateLocaleItem instanceof Function, true);
     assert.equal(webErrors.make instanceof Function, true);
-    assert.equal(typeof webErrors.errors == 'object', true);
-    assert.equal(typeof webErrors.errors.SUCCESS == 'object', true);
-    assert.equal(typeof webErrors.errors.FAILURE == 'object', true);
-    assert.equal(typeof webErrors.errors.UNKNOWN_ERROR == 'object', true);
+    assert.equal(typeof webErrors.errors === 'object', true);
+    assert.equal(typeof webErrors.errors.SUCCESS === 'object', true);
+    assert.equal(typeof webErrors.errors.FAILURE === 'object', true);
+    assert.equal(typeof webErrors.errors.UNKNOWN_ERROR === 'object', true);
   });
 
   it('should have basic structure', function () {
     for (var k in webErrors.errors) {
       var v = webErrors.errors[k];
-      assert.equal(typeof v.code != 'undefined', true);
+      assert.equal(typeof v.code !==  'undefined', true);
       assert.equal(validator.isNumeric(v.code), true);
-      assert.equal(typeof v.message == 'string', true);
+      assert.equal(typeof v.message === 'string', true);
     }
   });
 
   it('should have basic structures', function () {
     for (var k in webErrors.errors) {
       var v = webErrors.errors[k];
-      assert.equal(typeof v.code != 'undefined', true);
+      assert.equal(typeof v.code !==  'undefined', true);
       assert.equal(validator.isNumeric(v.code), true);
-      assert.equal(typeof v.message != 'undefined', true);
-      assert.equal(typeof v.message == 'string', true);
+      assert.equal(typeof v.message !==  'undefined', true);
+      assert.equal(typeof v.message === 'string', true);
     }
   });
 
   it('should have i18n ability', function () {
-    var locale = 'zh-CN'
+    var locale = 'zh-CN';
     var lang = webErrors.lang;
-    var v = lang('Success!', 'zh-CN');
-    assert(lang('Success!', 'zh-CN') == '成功!', true);
+    assert(lang('Success!', 'zh-CN') === '成功!', true);
 
     var localErrors = webErrors.setLocale(locale);
     var enErrors = webErrors.setLocale('en');
     for (var key in enErrors) {
-      assert(localErrors[key].code == enErrors[key].code, true);
-      assert(localErrors[key].message == lang(enErrors[key].message, locale), true);
+      assert(localErrors[key].code === enErrors[key].code, true);
+      assert(localErrors[key].message === lang(enErrors[key].message, locale), true);
     }
   });
 
@@ -70,15 +69,15 @@ describe('web Error Test', function () {
     customEvents.EVENT1,
     customErrors.ERROR1);
   var customMessage = "MY ERROR!";
-  var customKey = 'MY_ERROR'
+  var customKey = 'MY_ERROR';
   var customLocaleMessage = "我的错误!";
   var customLocale = 'zh-CN';
 
   it('should be able to be customized', function () {
     assert.equal(webErrors.add('SUCCESS', customCode, customMessage), false);
     assert.equal(webErrors.add(customKey, customCode, customMessage), true);
-    assert.equal(webErrors.errors[customKey].code == customCode, true);
-    assert.equal(webErrors.errors[customKey].message == customMessage, true);
+    assert.equal(webErrors.errors[customKey].code === customCode, true);
+    assert.equal(webErrors.errors[customKey].message === customMessage, true);
   });
 
 
@@ -89,10 +88,10 @@ describe('web Error Test', function () {
     assert.equal(webErrors.updateLocaleItem(customMessage), false);
     assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage), false);
     assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
-    assert.equal(webErrors.errors[customKey].message != customLocaleMessage, true);
+    assert.equal(webErrors.errors[customKey].message !==  customLocaleMessage, true);
     webErrors.setLocale(customLocale);
     assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
-    assert.equal(webErrors.errors[customKey].message == customLocaleMessage, true);
+    assert.equal(webErrors.errors[customKey].message === customLocaleMessage, true);
   });
 
 });

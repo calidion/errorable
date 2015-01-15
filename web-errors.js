@@ -22,9 +22,8 @@
  */
 
 
-
-
 (function (name, definition) {
+  'use strict';
   if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
     module.exports = definition();
   } else if (typeof define === 'function' && typeof define.amd === 'object') {
@@ -81,6 +80,7 @@
    */
 
   var events = {
+    NONE: 0,
     REGISTER: 1,
     LOGIN: 2,
     LOGOUT: 3,
@@ -139,25 +139,31 @@
   };
 
   var locales = {
-    'en': {
-
-    },
+    'en': {},
     'zh-CN': {
       //System error info
       'Success!': '成功!',
-      'Failure!': '失败！',
+      'Failure!': '失败!',
       'Unknown Error!': '未知错误!',
 
       //User errors
       'User Existed!': '用户已经存在!',
-      'User Not Found!': '用户未找到！',
-      'User Not Login!': '用户尚未登录！',
+      'User Not Found!': '用户未找到!',
+      'User Not Login!': '用户尚未登录!',
 
       //Database errors
       'Database Error!': '数据库错误!',
 
       //Password errors
-      'Password Error!': '密码错误！'
+      'Password Error!': '密码错误!',
+
+      //Admin errors
+      'Administrator Existed!': '管理员已经存在!',
+      'Administrator Not Found!': '管理员未找到!',
+      'Administrator Not Login!': '管理员未登录!',
+
+      //Action/Event errors
+      'Update Failed!': '更新失败!'
     }
   };
 
@@ -201,12 +207,12 @@
      */
     add: function (name, code, message) {
       if (name in errors) {
-        return false
+        return false;
       }
       errors[name] = {
         code: code,
         message: message
-      }
+      };
       return true;
     },
 
@@ -254,7 +260,7 @@
     //Basic errors
 
     SUCCESS: {
-      code: util.make(0, 0, 0, types.SUCCESS),
+      code: util.make(0, 0, events.NONE, types.SUCCESS),
       message: 'Success!'
     },
     FAILURE: {
@@ -298,17 +304,23 @@
     //Admin errros
     ADMIN_EXISTED: {
       code: util.make(entities.ADMIN, 0, 0, types.EXISTED),
-      message: 'ADMIN Existed!'
+      message: 'Administrator Existed!'
     },
 
     ADMIN_NOT_FOUND: {
       code: util.make(entities.ADMIN, 0, 0, types.EXISTED),
-      message: 'ADMIN Not Found!'
+      message: 'Administrator Not Found!'
     },
 
     ADMIN_NOT_LOGIN: {
       code: util.make(entities.ADMIN, 0, 0, types.NOT_LOGIN),
-      message: 'ADMIN Not Login!'
+      message: 'Administrator Not Login!'
+    },
+
+    //Action Errors
+    UPDATE_FAILED: {
+      code: util.make(0, 0, events.UPDATE, types.FAILED),
+      message: 'Update Failed!'
     }
   };
 
@@ -338,7 +350,7 @@
     },
     updateLocaleItem: function (name, value, locale) {
       if (util.updateLocaleItem(name, value, locale)) {
-        if (webErrors.locale == locale) {
+        if (webErrors.locale === locale) {
           webErrors.errors = webErrors.setLocale(locale);
         }
         return true;

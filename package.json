@@ -1,8 +1,8 @@
 {
   "name": "web-errors",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "Standard error for web programs or express programs",
-  "main": "index.js",
+  "main": "web-errors.js",
   "scripts": {
     "test": "mocha"
   },
