@@ -65,7 +65,8 @@
     EMAIL: 5,
     FILE: 6,
     ADMIN: 7,
-    PASSWORD: 8
+    PASSWORD: 8,
+    INPUT: 9
   };
 
   /**
@@ -163,7 +164,10 @@
       'Administrator Not Login!': '管理员未登录!',
 
       //Action/Event errors
-      'Update Failed!': '更新失败!'
+      'Update Failed!': '更新失败!',
+
+      //Input errors
+      'Input Invalid!': '输入无效!'
     }
   };
 
@@ -321,7 +325,14 @@
     UPDATE_FAILED: {
       code: util.make(0, 0, events.UPDATE, types.FAILED),
       message: 'Update Failed!'
+    },
+
+    //Input errors
+    INPUT_INVALID: {
+      code: util.make(entities.INPUT, 0, 0, types.FAILED),
+      message: 'Input Invalid!'
     }
+
   };
 
 
