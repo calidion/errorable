@@ -3,10 +3,9 @@ web-errors
 
  [![Build Status](https://travis-ci.org/calidion/web-errors.svg)](https://travis-ci.org/calidion/web-errors)
 
-a standard error library for web functions and http response.
+a standard error library for web functions and http responses.
 
-# ERR CODE FORMAT:
-
+# ERROR CODE FORMAT:
 
 ```
  0x[31-24][23-16][15-8][7-0]
@@ -18,19 +17,21 @@ a standard error library for web functions and http response.
 * [24-31]bit: ENTITY Code
 
 
-# Standard Errors(Current)
 
-#### SUCCESS
-#### FAILURE
-#### UNKNOWN_ERROR
-#### DATABASE_ERROR
-#### USER_EXISTED
-#### USER_NOT_FOUND
-#### USER_NOT_LOGIN
+# Benefits
 
+  * Unified error definitions for both client and server sides.
+  * Exchangeability between projects.
+  * Easy i18n support for errors.
 
 # Install
 
+node:
+```bash
+npm install web-errors
+```
+
+browser:
 ```bash
 npm install web-errors
 ```
@@ -47,6 +48,14 @@ var errors = webErrors.errors;
 
 req.json(errors.UNKNOWN_ERR);
 
+```
+
+```html
+
+    <script src="bower_components/web-errors/web-errors.js"></script>
+    <script>
+      var errors = webErrors.errors;
+    </script>
 ```
 
 
@@ -95,9 +104,3 @@ var customLocale = 'zh-CN';
 
 webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale);
 ```
-
-# How to Contribute
-
-##You can add your common entities and event into defines directory
-##You can add common errors into errors directory
-##You can add translated error messages into i18n directory in a js file named by its locale.

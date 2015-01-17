@@ -159,6 +159,9 @@
       //Password errors
       'Password Error!': '密码错误!',
 
+      //File errors
+      'File Not Found!': '文件未找到!',
+
       //Admin errors
       'Administrator Existed!': '管理员已经存在!',
       'Administrator Not Found!': '管理员未找到!',
@@ -304,6 +307,12 @@
     PASSWORD_ERROR: {
       code: util.make(entities.PASSWORD, 0, 0, types.ERROR),
       message: 'Password Error!'
+    },
+
+    //File errors
+    FILE_NOT_FOUND: {
+      code: util.make(entities.FILE, 0, 0, types.NOT_FOUND),
+      message: 'File Not Found!'
     },
 
     //Admin errros

@@ -1,7 +1,7 @@
 {
   "name": "web-errors",
-  "version": "0.0.7",
-  "description": "Standard error for web programs or express programs",
+  "version": "0.0.8",
+  "description": "Standard errors for web programs or express programs",
   "main": "web-errors.js",
   "scripts": {
     "test": "_mocha --reporter spec",
