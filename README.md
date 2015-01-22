@@ -23,6 +23,8 @@ a standard error library for web functions and http responses.
   * Unified error definitions for both client and server sides.
   * Exchangeability between projects.
   * Easy i18n support for errors.
+  * Use names or strings instead of numeric values, you don't need to care about real values of errors
+  * The code values of the errors are changeable, so you will never use real values.
 
 # Install
 
@@ -46,7 +48,7 @@ npm install web-errors
 var webErrors = require('web-errors');
 var errors = webErrors.errors;
 
-req.json(errors.UNKNOWN_ERR);
+req.json(errors.UNKNOWN_ERROR);
 
 ```
 

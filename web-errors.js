@@ -67,7 +67,10 @@
     FILE: 6,
     ADMIN: 7,
     PASSWORD: 8,
-    INPUT: 9
+    INPUT: 9,
+    NUMERIC: 10,
+    CATEGORY: 11,
+    NAME: 12
   };
 
   /**
@@ -152,6 +155,7 @@
       'User Existed!': '用户已经存在!',
       'User Not Found!': '用户未找到!',
       'User Not Login!': '用户尚未登录!',
+      'Username Existed!': '用户名已经存在!',
 
       //Database errors
       'Database Error!': '数据库错误!',
@@ -171,7 +175,15 @@
       'Update Failed!': '更新失败!',
 
       //Input errors
-      'Input Invalid!': '输入无效!'
+      'Input Invalid!': '输入无效!',
+      'Numeric Required!': '输入必须是数值!',
+
+      //Category errors
+      'Category Not Found!': '分类未找到!',
+
+      //Email errors
+      'Email Existed!': '邮箱已经存在!'
+
     }
   };
 
@@ -296,6 +308,11 @@
       message: 'User Not Login!'
     },
 
+    USERNAME_EXISTED: {
+      code: util.make(entities.USER, entities.NAME, 0, types.EXISTED),
+      message: 'Username Existed!'
+    },
+
     //Database errros
     DATABASE_ERROR: {
       code: util.make(entities.DATABASE, 0, 0, types.FAILURE),
@@ -341,8 +358,23 @@
     INPUT_INVALID: {
       code: util.make(entities.INPUT, 0, 0, types.FAILED),
       message: 'Input Invalid!'
-    }
+    },
+    NUMERIC_REQUIRED: {
+      code: util.make(entities.NUMERIC, 0, 0, types.REQUIRED),
+      message: 'Numeric Required!'
+    },
 
+    //Category errors
+    CATEGORY_NOT_FOUND: {
+      code: util.make(entities.CATEGORY, 0, 0, types.NOT_FOUND),
+      message: 'Category Not Found!'
+    },
+
+    //Email errors
+    EMAIL_EXISTED: {
+      code: util.make(entities.EMAIL, 0, 0, types.EXISTED),
+      message: 'Email Existed!'
+    }
   };
 
 
