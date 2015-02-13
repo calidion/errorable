@@ -70,7 +70,8 @@
     INPUT: 9,
     NUMERIC: 10,
     CATEGORY: 11,
-    NAME: 12
+    NAME: 12,
+    PHONE: 13
   };
 
   /**
@@ -139,7 +140,10 @@
     BLOCKED: 9,
 
     //Resources related
-    EXCEEDED: 10
+    EXCEEDED: 10,
+
+    //Input related
+    NOT_SPECIFIED: 11
 
   };
 
@@ -178,11 +182,21 @@
       'Input Invalid!': '输入无效!',
       'Numeric Required!': '输入必须是数值!',
 
+      'Name Not Specified!': '名字未指定!',
+
+      'Password Not Specified!': '密码未指定!',
+
+      'Email Not Specified!': '邮箱未指定!',
+
+
       //Category errors
       'Category Not Found!': '分类未找到!',
 
       //Email errors
-      'Email Existed!': '邮箱已经存在!'
+      'Email Existed!': '邮箱已经存在!',
+
+      //Phone errors
+      'Phone Existed!': '手机已经存在!'
 
     }
   };
@@ -364,6 +378,21 @@
       message: 'Numeric Required!'
     },
 
+    NAME_NOT_SPECIFIED: {
+      code: util.make(entities.NAME, 0, 0, types.NOT_SPECIFIED),
+      message: 'Name Not Specified!'
+    },
+
+    PASSWORD_NOT_SPECIFIED: {
+      code: util.make(entities.PASSWORD, 0, 0, types.NOT_SPECIFIED),
+      message: 'Password Not Specified!'
+    },
+
+    EMAIL_NOT_SPECIFIED : {
+      code: util.make(entities.EMAIL, 0, 0, types.NOT_SPECIFIED),
+      message: 'Email Not Specified!'
+    },
+
     //Category errors
     CATEGORY_NOT_FOUND: {
       code: util.make(entities.CATEGORY, 0, 0, types.NOT_FOUND),
@@ -374,6 +403,12 @@
     EMAIL_EXISTED: {
       code: util.make(entities.EMAIL, 0, 0, types.EXISTED),
       message: 'Email Existed!'
+    },
+
+    //Phone errors
+    PHONE_EXISTED: {
+      code: util.make(entities.PHONE, 0, 0, types.EXISTED),
+      message: 'Phone Existed!'
     }
   };
 
