@@ -4,8 +4,8 @@
   "description": "Standard errors for web programs or express programs",
   "main": "web-errors.js",
   "scripts": {
-    "test": "_mocha --reporter spec",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "test": "mocha --reporter spec",
+    "coveralls": "istanbul cover mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
