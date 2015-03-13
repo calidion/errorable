@@ -113,3 +113,47 @@ var customLocale = 'zh-CN';
 
 webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale);
 ```
+
+
+## ERRORS
+
+```javascript
+var errors = [
+      'SUCCESS',
+      'FAILURE',
+      'FAILED',
+      'ERROR',
+      'NOT_FOUND',
+      'NOT_LOGIN',
+      'EXISTED',
+      'NOT_SPECIFIED',
+      'REQUIRED',
+
+      //Specific errors
+      'UNKNOWN_ERROR',
+      'DATABASE_ERROR',
+      'PASSWORD_ERROR',
+
+
+      'USER_NOT_FOUND',
+      'USER_NOT_LOGIN',
+      'USERNAME_EXISTED',
+
+      'FILE_NOT_FOUND',
+
+
+      'ADMIN_EXISTED',
+      'ADMIN_NOT_FOUND',
+      'ADMIN_NOT_LOGIN',
+
+      'UPDATE_FAILED',
+      'INPUT_INVALID',
+      'NUMERIC_REQUIRED',
+      'NAME_NOT_SPECIFIED',
+      'PASSWORD_NOT_SPECIFIED',
+      'EMAIL_NOT_SPECIFIED',
+      'CATEGORY_NOT_FOUND',
+      'EMAIL_EXISTED',
+      'PHONE_EXISTED'
+      ];
+```

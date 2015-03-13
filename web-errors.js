@@ -155,8 +155,15 @@
       //System error info
       'Success!': '成功!',
       'Failure!': '失败!',
+      'Failed!': '失败了!',
+      'Error!': '错误!',
+      'Existed!': '已经存在!',
+
       'Unknown Error!': '未知错误!',
       'Not Found!': '没有找到!',
+      'Not Login!': '没有登录!',
+      'Not Specified!': '未指定!',
+      'Required!': '必需有!',
 
       //User errors
       'User Existed!': '用户已经存在!',
@@ -304,13 +311,45 @@
       code: util.make(0, 0, 0, types.FAILURE),
       message: 'Failure!'
     },
-    UNKNOWN_ERROR: {
-      code: util.make(entities.UNKNOWN, 0, 0, types.FAILURE),
-      message: 'Unknown Error!'
+
+    FAILED: {
+      code: util.make(0, 0, 0, types.FAILED),
+      message: 'Failed!'
     },
+
+    ERROR: {
+      code: util.make(0, 0, 0, types.ERROR),
+      message: 'Error!'
+    },
+
     NOT_FOUND: {
       code: util.make(entities.GENERIC, 0, 0, types.NOT_FOUND),
       message: 'Not Found!'
+    },
+
+    EXISTED: {
+      code: util.make(entities.GENERIC, 0, 0, types.EXISTED),
+      message: 'Existed!'
+    },
+
+    NOT_SPECIFIED: {
+      code: util.make(entities.GENERIC, 0, 0, types.NOT_SPECIFIED),
+      message: 'Not Specified!'
+    },
+
+    NOT_LOGIN: {
+      code: util.make(entities.GENERIC, 0, 0, types.NOT_LOGIN),
+      message: 'Not Login!'
+    },
+
+    REQUIRED: {
+      code: util.make(entities.GENERIC, 0, 0, types.REQUIRED),
+      message: 'Required!'
+    },
+
+    UNKNOWN_ERROR: {
+      code: util.make(entities.UNKNOWN, 0, 0, types.FAILURE),
+      message: 'Unknown Error!'
     },
 
     //User errors
