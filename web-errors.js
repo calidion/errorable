@@ -73,7 +73,8 @@
     NUMERIC: 10,
     CATEGORY: 11,
     NAME: 12,
-    PHONE: 13
+    PHONE: 13,
+    MERCHANT: 14
   };
 
   /**
@@ -184,6 +185,10 @@
       'Administrator Existed!': '管理员已经存在!',
       'Administrator Not Found!': '管理员未找到!',
       'Administrator Not Login!': '管理员未登录!',
+
+      //Merchant errors
+
+      'Merchant Not Login!': '商户未登录!',
 
       //Action/Event errors
       'Update Failed!': '更新失败!',
@@ -406,6 +411,13 @@
     ADMIN_NOT_LOGIN: {
       code: util.make(entities.ADMIN, 0, 0, types.NOT_LOGIN),
       message: 'Administrator Not Login!'
+    },
+
+    //Merchant Errors
+
+    MERCHANT_NOT_LOGIN: {
+      code: util.make(entities.MERCHANT, 0, 0, types.NOT_LOGIN),
+      message: 'Merchant Not Login!'
     },
 
     //Action Errors
