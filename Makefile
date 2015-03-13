@@ -4,7 +4,7 @@ build: test min lint
 
 test: dependencies
 	@echo "start testing..."
-	@$(NPM)/_mocha \
+	@$(NPM)/mocha \
 		--reporter $(if $(or $(TEST),$(V)),spec,dot) \
 		--slow 600 --timeout 2000 \
 		--grep '$(TEST)'
@@ -24,7 +24,7 @@ node_modules:
 	@npm install
 
 coverage: dependencies
-	@$(NPM)/istanbul cover $(NPM)/_mocha -- --reporter spec
+	@$(NPM)/istanbul cover $(NPM)/mocha -- --reporter spec
 	@open coverage/lcov-report/validator.js/validator.js.html
 
 clean:
