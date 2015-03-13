@@ -4,7 +4,7 @@ var assert = require('assert')
 describe('web Error Test', function () {
   'use strict';
   it('should have basic info', function () {
-    assert.equal(typeof webErrors.locale !==  'undefined', true);
+    assert.equal(typeof webErrors.locale !== 'undefined', true);
     assert.equal(webErrors.add instanceof Function, true);
     assert.equal(webErrors.setLocale instanceof Function, true);
     assert.equal(webErrors.updateLocaleItem instanceof Function, true);
@@ -18,7 +18,7 @@ describe('web Error Test', function () {
   it('should have basic structure', function () {
     for (var k in webErrors.errors) {
       var v = webErrors.errors[k];
-      assert.equal(typeof v.code !==  'undefined', true);
+      assert.equal(typeof v.code !== 'undefined', true);
       assert.equal(validator.isNumeric(v.code), true);
       assert.equal(typeof v.message === 'string', true);
     }
@@ -27,9 +27,9 @@ describe('web Error Test', function () {
   it('should have basic structures', function () {
     for (var k in webErrors.errors) {
       var v = webErrors.errors[k];
-      assert.equal(typeof v.code !==  'undefined', true);
+      assert.equal(typeof v.code !== 'undefined', true);
       assert.equal(validator.isNumeric(v.code), true);
-      assert.equal(typeof v.message !==  'undefined', true);
+      assert.equal(typeof v.message !== 'undefined', true);
       assert.equal(typeof v.message === 'string', true);
     }
   });
@@ -88,7 +88,7 @@ describe('web Error Test', function () {
     assert.equal(webErrors.updateLocaleItem(customMessage), false);
     assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage), false);
     assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
-    assert.equal(webErrors.errors[customKey].message !==  customLocaleMessage, true);
+    assert.equal(webErrors.errors[customKey].message !== customLocaleMessage, true);
     webErrors.setLocale(customLocale);
     assert.equal(webErrors.updateLocaleItem(customMessage, customLocaleMessage, customLocale), true);
     assert.equal(webErrors.errors[customKey].message === customLocaleMessage, true);
@@ -96,13 +96,47 @@ describe('web Error Test', function () {
 
   it('should have equivalent translations', function () {
     var enErrors = webErrors.setLocale('en');
-    for(var locale in webErrors.locales) {
+    for (var locale in webErrors.locales) {
       if (locale === 'en') continue;
 
-      for(var k in enErrors) {
+      for (var k in enErrors) {
         assert.equal(true, !!webErrors.locales[locale][enErrors[k].message]);
       }
     }
+  });
+
+
+  it('should password all errors', function () {
+    var errors = webErrors.errors;
+    var errorList = [
+      'SUCCESS',
+      'FAILURE',
+      'UNKNOWN_ERROR',
+      'NOT_FOUND',
+      'USER_NOT_FOUND',
+      'USER_NOT_LOGIN',
+      'USERNAME_EXISTED',
+      'DATABASE_ERROR',
+      'PASSWORD_ERROR',
+      'FILE_NOT_FOUND',
+      'ADMIN_EXISTED',
+      'ADMIN_NOT_FOUND',
+      'ADMIN_NOT_LOGIN',
+      'UPDATE_FAILED',
+      'INPUT_INVALID',
+      'NUMERIC_REQUIRED',
+      'NAME_NOT_SPECIFIED',
+      'PASSWORD_NOT_SPECIFIED',
+      'EMAIL_NOT_SPECIFIED',
+      'CATEGORY_NOT_FOUND',
+      'EMAIL_EXISTED',
+      'PHONE_EXISTED'
+    ];
+    errorList.forEach(function (v) {
+      assert((errors[v].code === errors.SUCCESS.code) || !!errors[v].code);
+      assert(typeof errors[v].message === 'string' && (errors[v].message.length > 0));
+
+    });
   });
 
 });

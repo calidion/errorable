@@ -33,6 +33,7 @@
     obj[name] = definition();
   }
 })('webErrors', function (webErrors) {
+
   /*
    ERROR CODE FORMAT:
 
@@ -49,16 +50,17 @@
   /**
    *  Error entities that throw or generate the errors
    *
-   *  The most and commonly used entities are listed
+   *  The most commonly used entities are listed
    *
    *  Total 8 bits
    *
-   *  Users have the abilities to extend the entities for their own projects
+   *  Users have the ability to extend the entities for their own projects
    *
    */
 
   var entities = {
     SYSTEM: 0,
+    GENERIC: 0,
     UNKNOWN: 1,
     USER: 2,
     DATABASE: 3,
@@ -77,11 +79,11 @@
   /**
    *  Error events that throw or generate the errors
    *
-   *  The most and commonly used events are listed
+   *  The most commonly used events are listed
    *
    *  Total 8 bits
    *
-   *  Users have the abilities to extend the events for their own projects
+   *  Users have the ability to extend the events for their own projects
    *
    */
 
@@ -104,13 +106,13 @@
   };
 
   /**
-   *  Error types that throws or generated
+   *  Error types that thrown or generated
    *
-   *  The most and commonly used typys are listed
+   *  The most commonly used types are listed
    *
    *  Total 8 bits
    *
-   *  Users have the abilities to extend the types for their own projects
+   *  Users have the ability to extend the types for their own projects
    *
    */
 
@@ -154,6 +156,7 @@
       'Success!': '成功!',
       'Failure!': '失败!',
       'Unknown Error!': '未知错误!',
+      'Not Found!': '没有找到!',
 
       //User errors
       'User Existed!': '用户已经存在!',
@@ -232,7 +235,7 @@
     },
 
     /**
-     * Add an error with error name, code, message
+     * Add an error with a name, a code, a message
      *
      * @param name
      * @param code
@@ -304,6 +307,10 @@
     UNKNOWN_ERROR: {
       code: util.make(entities.UNKNOWN, 0, 0, types.FAILURE),
       message: 'Unknown Error!'
+    },
+    NOT_FOUND: {
+      code: util.make(entities.GENERIC, 0, 0, types.NOT_FOUND),
+      message: 'Not Found!'
     },
 
     //User errors

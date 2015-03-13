@@ -57,6 +57,13 @@ req.json(errors.UNKNOWN_ERROR);
     <script src="bower_components/web-errors/web-errors.js"></script>
     <script>
       var errors = webErrors.errors;
+        $http.post().success(function (data) {
+            switch(data.code) {
+              case errors.USER_NOT_LOGIN.code:
+                $location.path('/');
+                break;
+          }
+        })
     </script>
 ```
 
