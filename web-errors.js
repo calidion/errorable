@@ -74,7 +74,8 @@
     CATEGORY: 11,
     NAME: 12,
     PHONE: 13,
-    MERCHANT: 14
+    MERCHANT: 14,
+    NETWORK: 15
   };
 
   /**
@@ -211,7 +212,10 @@
       'Email Existed!': '邮箱已经存在!',
 
       //Phone errors
-      'Phone Existed!': '手机已经存在!'
+      'Phone Existed!': '手机已经存在!',
+
+      //Network errors
+      'Network Error Occurred!': '网络错误！'
 
     }
   };
@@ -306,7 +310,7 @@
 
   var errors = {
 
-    //Basic errors
+    //Basic/generic errors
 
     SUCCESS: {
       code: util.make(0, 0, events.NONE, types.SUCCESS),
@@ -467,6 +471,12 @@
     PHONE_EXISTED: {
       code: util.make(entities.PHONE, 0, 0, types.EXISTED),
       message: 'Phone Existed!'
+    },
+
+    //Network errors
+    NETWORK_ERROR : {
+      code: util.make(entities.NETWORK, 0, 0, types.ERROR),
+      message: 'Network Error Occurred!'
     }
   };
 

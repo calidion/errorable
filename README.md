@@ -35,7 +35,7 @@ npm install web-errors
 
 browser:
 ```bash
-npm install web-errors
+bower install web-errors
 ```
 
 

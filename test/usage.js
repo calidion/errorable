@@ -146,7 +146,8 @@ describe('web Error Test', function () {
       'EMAIL_NOT_SPECIFIED',
       'CATEGORY_NOT_FOUND',
       'EMAIL_EXISTED',
-      'PHONE_EXISTED'
+      'PHONE_EXISTED',
+      'NETWORK_ERROR'
     ];
     errorList.forEach(function (v) {
       assert((errors[v].code === errors.SUCCESS.code) || !!errors[v].code);
