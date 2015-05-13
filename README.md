@@ -2,7 +2,7 @@ web-errors
 ============
 
  [![Build Status](https://travis-ci.org/calidion/web-errors.svg)](https://travis-ci.org/calidion/web-errors)
-
+[![Coverage Status](https://coveralls.io/repos/calidion/web-errors/badge.svg)](https://coveralls.io/r/calidion/web-errors)
 a standard error library for web functions and http responses.
 
 # ERROR CODE FORMAT:
