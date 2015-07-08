@@ -1,1 +1,1 @@
-moved to [here](https://github.com/JSSDKCN/node-weixin-api)
+moved to [here](https://github.com/web-errors/node)
