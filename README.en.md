@@ -1,51 +1,55 @@
-# berror [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# errorable [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
-> General javascript errors generator
 
-javascript errors with
-1. Domain   
-   The same as prefix, errors with prefix can be more recognizable
-2. Predefined errors   
-   Predefined errors are standard errors of berror and will be enriched
-3. I18n   
-   Error messages vary with locales
-4. Customization   
-   Error folder can be specified to customize errors
+> Generic Error Handling And Generation
+
+1. Domain
+    alias to prefix
+2. Predefine Errors     
+    These are standard errors accumulated over time
+3. i18n   
+    Error Messages are specific to locales.
+4. Customization
+    Can easily customize a new error table with a json file/object
 5. Unification
-   Error code of each error can never be changed, so it can be exchangable through projects, no need to define errors for every project
+    Errors are identified by names. And names are strings can be used universally.
 
-## Installation
+## Install
 
 ```sh
-$ npm install --save berror
+$ npm install --save errorable
 ```
 
 ## Usage
 
 ```js
-//Error generation
-var BaseError = require('berror').error;
+//Get the errorable object
+var errorable = require('errorable');
 
-//Error definition
-var i18n = require('berror').i18n;
-var errorMessages = i18n.get(pathOfErrorMessagesDefined);
-```
+//Generate errors
+var Generator = errorable.Generator;
+var errors = new Generator(errorable.stocks.http, 'zh-CN').errors;
+//errors.Ok.code
+//errors.Ok.message
+//errors.Ok.name
 
-### New An Error
+//New A Customized Error
 
-```js
-var error = new BaseError({
-      errors: ['user', 'not', 'found'],    //Sequential Error Description
-      prefix: 'java:',                     //Prefix for Messages
-      code: 404,                           //Numeric value for this error
-      message: 'User is not found!',       //Customized Error Messsage
-      locale: 'en-US',                     //Locale for errors
-      i18n: i18n.get(dir)                  //Customized error definition directory
+var Errorable = errorable.Errorable;
+var error = new Errorable({
+      name: 'UserNotFound',                 //Sequential Error Description
+      prefix: 'java',                       //Prefix for Messages
+      code: 404,                            //Numeric value for this error
+      messages: {
+        'zh-CN': '用户未定义',
+        'en-US': 'User is not found!'
+      } ,        //Customized Error Messsage
+      locale: 'en-US',                      //Locale for errors
     });
 //error.name => "UserNotFound"
 //error.code => 404
 //error.message => "java:User is not found!"
-//error.restify() => { code: 404, message: "js:hello", name: 'UserNotFound'}
+//error.restify() => { code: 404, message: "java:User is not found!", name: 'UserNotFound'}
 ```
 
 ### Throw An Error
@@ -53,11 +57,11 @@ var error = new BaseError({
 throw error;
 ```
 
-### Error Messages
+### Error Message, Error Code and Error Name
 
-* berror predefined some errors as standard errors
-* errors can be customized by folders or by generation
-* can also be replaced by providing locales folder when creating a generator
+* Error message can be varied by locales
+* Error code can be specified or it will be the same to the name
+* Error name is string, which can be language independent.
 
 
 ## License
@@ -65,11 +69,11 @@ throw error;
 MIT © [calidion](blog.3gcnbeta.com)
 
 
-[npm-image]: https://badge.fury.io/js/berror.svg
-[npm-url]: https://npmjs.org/package/berror
-[travis-image]: https://travis-ci.org/calidion/berror.svg
-[travis-url]: https://travis-ci.org/calidion/berror
-[daviddm-image]: https://david-dm.org/berror/berror.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/berror/berror
-[coveralls-image]: https://coveralls.io/repos/calidion/berror/badge.svg?branch=master&service=github
-[coveralls-url]: https://coveralls.io/github/calidion/berror?branch=master
+[npm-image]: https://badge.fury.io/js/errorable.svg
+[npm-url]: https://npmjs.org/package/errorable
+[travis-image]: https://travis-ci.org/calidion/errorable.svg
+[travis-url]: https://travis-ci.org/calidion/errorable
+[daviddm-image]: https://david-dm.org/calidion/errorable.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/calidion/errorable
+[coveralls-image]: https://coveralls.io/repos/calidion/errorable/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/calidion/errorable?branch=master
