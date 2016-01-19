@@ -1,38 +1,45 @@
 {
-  "name": "web-errors",
-  "version": "0.0.13",
-  "description": "Standard errors for web programs or express programs",
-  "main": "web-errors.js",
-  "scripts": {
-    "test": "mocha --reporter spec",
-    "coveralls": "istanbul cover mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+  "name": "js-errors",
+  "version": "0.0.3",
+  "description": "General javascript errors generator",
+  "homepage": "",
+  "author": {
+    "name": "calidion",
+    "email": "calidion@gmail.com",
+    "url": "blog.3gcnbeta.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/calidion/web-errors.git"
-  },
-  "keywords": [
-    "web",
-    "error",
-    "i18n",
-    "express",
-    "request",
-    "standard",
-    "web-errors"
+  "files": [
+    "dist"
   ],
-  "author": "calidion",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/calidion/web-errors/issues"
-  },
-  "homepage": "https://github.com/calidion/web-errors",
+  "main": "dist/index.js",
+  "keywords": [
+    "errors",
+    "javascript",
+    "generator"
+  ],
+  "repository": "JS-Errors/generator",
   "devDependencies": {
-    "contextify": "latest",
-    "coveralls": "latest",
-    "istanbul": "latest",
-    "jshint": "latest",
-    "mocha": "latest",
-    "uglify-js": "latest",
-    "validator": "^3.27.0"
-  }
+    "babel-core": "^5.5.0",
+    "babelify": "^7.2.0",
+    "del": "^2.0.2",
+    "gulp": "^3.6.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.1",
+    "isparta": "^3.0.3",
+    "watchify": "^3.6.1"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT"
 }
