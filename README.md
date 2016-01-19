@@ -28,34 +28,30 @@ $ npm install --save errorable
 //获取错误接口
 var errorable = require('errorable');
 
-//错误写成
+//错误批量生成
 var Generator = errorable.Generator;
+var errors = new Generator(errorable.stocks.http, 'zh-CN').errors;
+//errors.Ok.code
+//errors.Ok.message
+//errors.Ok.name
 
-var errors = Generator(errorsDefinition, 'zh-CN');
+//错误临时生成
 
-var error = errorable.get(['failed']).restify();
-
-
-
-//获取错误消息或者Code信息数据
-
-```
-
-### 定义新错误
-
-```js
-var error = new BaseError({
-      errors: ['user', 'not', 'found'],    //Sequential Error Description
-      prefix: 'java:',                     //Prefix for Messages
-      code: 404,                           //Numeric value for this error
-      message: 'User is not found!',       //Customized Error Messsage
-      locale: 'en-US',                     //Locale for errors
-      i18n: i18n.get(dir)                  //Customized error definition directory
+var Errorable = errorable.Errorable;
+var error = new Errorable({
+      name: 'UserNotFound',                 //Sequential Error Description
+      prefix: 'java',                       //Prefix for Messages
+      code: 404,                            //Numeric value for this error
+      messages: {
+        'zh-CN': '用户未定义',
+        'en-US': 'User is not found!'
+      } ,        //Customized Error Messsage
+      locale: 'en-US',                      //Locale for errors
     });
 //error.name => "UserNotFound"
 //error.code => 404
 //error.message => "java:User is not found!"
-//error.restify() => { code: 404, message: "js:hello", name: 'UserNotFound'}
+//error.restify() => { code: 404, message: "java:User is not found!", name: 'UserNotFound'}
 ```
 
 ### 抛出错误
@@ -67,7 +63,7 @@ throw error;
 
 * 错误消息可以添加前缀，可以根据地区变换
 * 错误代码可以自定义，也可以预定义
-* 错误名称在所有的项目中不会发生变化，可以唯一标识
+* 错误名称直接使用字符串，可在做到语言无关，在所有的项目中通用，并且可以唯一标识
 
 
 ## License

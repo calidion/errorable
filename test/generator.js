@@ -17,7 +17,11 @@ describe('Index', function () {
     assert.equal(true, errorable.Errorable === Errorable);
     assert.equal(true, errorable.Generator === Generator);
     var errors = new Generator(errorable.stocks.http, 'zh-CN').errors;
+    var Ok = errors.Ok.restify();
     assert.equal(true, errors.Continue.code === 100);
     assert.equal(true, errors.Ok.code === 200);
+    assert.equal(true, Ok.code === 200);
+    assert.equal(true, Ok.message === '正常');
+    assert.equal(true, Ok.name === 'Ok');
   });
 });
