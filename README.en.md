@@ -67,9 +67,9 @@ MIT © [calidion](blog.3gcnbeta.com)
 
 [npm-image]: https://badge.fury.io/js/berror.svg
 [npm-url]: https://npmjs.org/package/berror
-[travis-image]: https://travis-ci.org/JS-Errors/berror.svg
-[travis-url]: https://travis-ci.org/JS-Errors/berror
+[travis-image]: https://travis-ci.org/calidion/berror.svg
+[travis-url]: https://travis-ci.org/calidion/berror
 [daviddm-image]: https://david-dm.org/berror/berror.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/berror/berror
-[coveralls-image]: https://coveralls.io/repos/JS-Errors/berror/badge.svg?branch=master&service=github
-[coveralls-url]: https://coveralls.io/github/JS-Errors/berror?branch=master
+[coveralls-image]: https://coveralls.io/repos/calidion/berror/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/calidion/berror?branch=master

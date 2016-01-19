@@ -73,9 +73,9 @@ MIT © [calidion](blog.3gcnbeta.com)
 
 [npm-image]: https://badge.fury.io/js/errorable.svg
 [npm-url]: https://npmjs.org/package/errorable
-[travis-image]: https://travis-ci.org/JS-Errors/errorable.svg
-[travis-url]: https://travis-ci.org/JS-Errors/errorable
+[travis-image]: https://travis-ci.org/calidion/errorable.svg
+[travis-url]: https://travis-ci.org/calidion/errorable
 [daviddm-image]: https://david-dm.org/errorable/errorable.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/errorable/errorable
-[coveralls-image]: https://coveralls.io/repos/JS-Errors/errorable/badge.svg?branch=master&service=github
-[coveralls-url]: https://coveralls.io/github/JS-Errors/errorable?branch=master
+[coveralls-image]: https://coveralls.io/repos/calidion/errorable/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/calidion/errorable?branch=master
