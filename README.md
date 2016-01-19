@@ -12,9 +12,9 @@
 3. 国际化    
     错误的消息值可以随着不同的区域发生变化
 4. 定制化  
-    通过指定错误文件夹定制错误信息
+    通过指定错误文件定制错误信息
 5. 一致性
-    对于相同的名字的错误，不同的项目可以通用。因为名字与ID在同名错误之间不可变。方便了项目的沟通过
+    由于错误名采用字符标识，对于相同名字的错误，不同的项目可以通用，方便了项目的沟通过。
 
 ## 安装
 
@@ -75,7 +75,7 @@ MIT © [calidion](blog.3gcnbeta.com)
 [npm-url]: https://npmjs.org/package/errorable
 [travis-image]: https://travis-ci.org/calidion/errorable.svg
 [travis-url]: https://travis-ci.org/calidion/errorable
-[daviddm-image]: https://david-dm.org/errorable/errorable.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/errorable/errorable
+[daviddm-image]: https://david-dm.org/calidion/errorable.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/calidion/errorable
 [coveralls-image]: https://coveralls.io/repos/calidion/errorable/badge.svg?branch=master&service=github
 [coveralls-url]: https://coveralls.io/github/calidion/errorable?branch=master
