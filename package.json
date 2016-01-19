@@ -1,7 +1,7 @@
 {
-  "name": "js-errors",
-  "version": "0.0.3",
-  "description": "General javascript errors generator",
+  "name": "errorable",
+  "version": "0.1.0",
+  "description": "General javascript errors generator and definition",
   "homepage": "",
   "author": {
     "name": "calidion",
@@ -17,7 +17,7 @@
     "javascript",
     "generator"
   ],
-  "repository": "JS-Errors/generator",
+  "repository": "calidion/errorable",
   "devDependencies": {
     "babel-core": "^5.5.0",
     "babelify": "^7.2.0",

@@ -1,6 +1,5 @@
 # errorable [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
-[English README](./README.en.md)
 
 > 通用错误处理与生成方案
 
@@ -28,8 +27,11 @@ $ npm install --save errorable
 ```js
 //获取错误接口
 var errorable = require('errorable');
-errorable.setLocale('zh-CN');
-errorable.setError(i18n);
+
+//错误写成
+var Generator = errorable.Generator;
+
+var errors = Generator(errorsDefinition, 'zh-CN');
 
 var error = errorable.get(['failed']).restify();
 

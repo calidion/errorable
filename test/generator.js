@@ -16,8 +16,8 @@ describe('Index', function () {
   it('Should generate errors', function () {
     assert.equal(true, errorable.Errorable === Errorable);
     assert.equal(true, errorable.Generator === Generator);
-    var generator = new Generator(errorable.stocks.http, 'zh-CN');
-    assert.equal(true, generator.errors.Continue.code === 100);
-    assert.equal(true, generator.errors.Ok.code === 200);
+    var errors = new Generator(errorable.stocks.http, 'zh-CN').errors;
+    assert.equal(true, errors.Continue.code === 100);
+    assert.equal(true, errors.Ok.code === 200);
   });
 });
