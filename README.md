@@ -29,12 +29,37 @@ $ npm install --save errorable
 //获取错误接口
 var errorable = require('errorable');
 
+//错误定义
+var json = {
+  I: {
+    Love: {
+      You: {
+        messages: {
+          'zh-CN': '我爱你！',
+          'en-US': 'I Love U!'
+        },
+        code: 1
+      }
+    }
+  },
+  Me: {
+    alias: 'I'
+  },
+  Hello: {
+    code: 100,
+    messages: {
+    }
+  }
+};
+
 //错误批量生成
 var Generator = errorable.Generator;
-var errors = new Generator(errorable.stocks.http, 'zh-CN').errors;
-//errors.Ok.code
-//errors.Ok.message
-//errors.Ok.name
+var errors = new Generator(json, 'zh-CN').errors;
+//errors.ILoveYou
+//errors.ILoveYou.name
+//errors.ILoveYou.code
+//errors.ILoveYou.message
+//errors.ILoveYou.restify()
 
 //错误临时生成
 

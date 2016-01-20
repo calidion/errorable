@@ -26,12 +26,37 @@ $ npm install --save errorable
 //Get the errorable object
 var errorable = require('errorable');
 
+//Error define
+var json = {
+  I: {
+    Love: {
+      You: {
+        messages: {
+          'zh-CN': '我爱你！',
+          'en-US': 'I Love U!'
+        },
+        code: 1
+      }
+    }
+  },
+  Me: {
+    alias: 'I'
+  },
+  Hello: {
+    code: 100,
+    messages: {
+    }
+  }
+};
+
 //Generate errors
 var Generator = errorable.Generator;
-var errors = new Generator(errorable.stocks.http, 'zh-CN').errors;
-//errors.Ok.code
-//errors.Ok.message
-//errors.Ok.name
+var errors = new Generator(json, 'zh-CN').errors;
+//errors.ILoveYou
+//errors.ILoveYou.name
+//errors.ILoveYou.code
+//errors.ILoveYou.message
+//errors.ILoveYou.restify()
 
 //New A Customized Error
 
