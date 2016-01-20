@@ -1,5 +1,6 @@
 # errorable [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
+[English](./README.en.md)
 
 > 通用错误处理与生成方案
 
