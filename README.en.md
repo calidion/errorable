@@ -12,7 +12,7 @@
 4. Customization
     Can easily customize a new error table with a json file/object
 5. Unification
-    Errors are identified by names. And names are strings can be used universally.
+    Errors are identified by names. And names are strings can be exchanged throught different projects.
 
 ## Install
 
