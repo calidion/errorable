@@ -3,15 +3,15 @@
 
 > Generic Error Handling And Generation
 
-1. Domain
-    alias to prefix
+1. Domain  
+    Alias to prefix
 2. Predefine Errors     
     These are standard errors accumulated over time
-3. i18n   
+3. i18n    
     Error Messages are specific to locales.
-4. Customization
+4. Customization  
     Can easily customize a new error table with a json file/object
-5. Unification
+5. Unification  
     Errors are identified by names. And names are strings can be exchanged throught different projects.
 
 ## Install
