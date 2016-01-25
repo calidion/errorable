@@ -39,6 +39,12 @@ describe('Generator', function() {
     assert.equal(true, generator.errors.ILoveYou.name === 'ILoveYou');
     assert.equal(true, generator.errors.ILoveYou.message === 'I Love U!');
 
+    var localized = generator.errors.ILoveYou.localize('zh-CN');
+    assert.equal(true, localized.message === '我爱你！');
+    assert.deepEqual(generator.errors.ILoveYou, localized);
+    var cloned = generator.errors.ILoveYou.localize('zh-CN', true);
+    assert.notDeepEqual(generator.errors.ILoveYou, cloned);
+
     var error = {
       History: {
         Not: {
