@@ -58,7 +58,6 @@ var errors = new Generator(json, 'zh-CN').errors;
 //errors.ILoveYou.message
 //errors.ILoveYou.restify()
 
-
 //Generate errors and name toUpper
 var errors = new Generator(json, 'zh-CN',true).errors;
 //errors.I_LOVE_YOU
@@ -66,6 +65,8 @@ var errors = new Generator(json, 'zh-CN',true).errors;
 //errors.I_LOVE_YOU.code
 //errors.I_LOVE_YOU.message
 //errors.I_LOVE_YOU.restify()
+//New A Customized Error
+
 //New A Customized Error
 
 var Errorable = errorable.Errorable;
