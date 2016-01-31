@@ -57,7 +57,9 @@ var errors = new Generator(json, 'zh-CN').errors;
 //errors.ILoveYou.code
 //errors.ILoveYou.message
 //errors.ILoveYou.restify()
-//errors name toUpper
+
+
+//Generate errors and name toUpper
 var errors = new Generator(json, 'zh-CN',true).errors;
 //errors.I_LOVE_YOU
 //errors.I_LOVE_YOU.name

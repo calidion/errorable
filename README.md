@@ -60,6 +60,7 @@ var errors = new Generator(json, 'zh-CN').errors;
 //errors.ILoveYou.code
 //errors.ILoveYou.message
 //errors.ILoveYou.restify()
+
 //错误名称大写
 var errors = new Generator(json, 'zh-CN',true).errors;
 //errors.I_LOVE_YOU
