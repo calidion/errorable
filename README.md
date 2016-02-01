@@ -92,6 +92,33 @@ throw error;
 * 错误名称直接使用字符串，可在做到语言无关，在所有的项目中通用，并且可以唯一标识
 
 
+### 作为express/connect的中间件使用
+
+```
+var app = require('express')()
+
+app.use(require('errorable').Middleware({options: "zh-cn"}))
+
+app.route('/test-error').get(function(req, res){
+  res.sendError('ILoveYou')
+})
+
+require('http').Server(app).listen(8080)
+
+```
+
+浏览器打开`localhost:8080/test-error` 可以看到
+
+```
+{
+    "messages": {
+      "zh-CN": "我爱你！",
+      "en-US": "I Love U!"
+    },
+    "code": 1
+  }
+```
+
 ## License
 
 MIT © [calidion](blog.3gcnbeta.com)
