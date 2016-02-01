@@ -88,6 +88,11 @@ throw error;
 * Error code can be specified or it will be the same to the name
 * Error name is string, which can be language independent.
 
+### Errors available 
+Common Errors：  
+https://github.com/Errorable/common  
+HTTP Errors：  
+https://github.com/Errorable/http  
 
 ## License
 
