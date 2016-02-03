@@ -38,6 +38,16 @@ describe('Generator', function() {
     assert.equal(true, generator.errors.ILoveYou !== undefined);
     assert.equal(true, generator.errors.ILoveYou.name === 'ILoveYou');
     assert.equal(true, generator.errors.ILoveYou.message === 'I Love U!');
+    generator = new Generator(json, 'zh-CN',true);
+    assert.equal(true, generator.errors !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YYOU !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YYOU.name === 'ILoveYou');
+    assert.equal(true, generator.errors.I_LOVE_YYOU.message === '我爱你！');
+    generator = new Generator(json, 'en-US',true);
+    assert.equal(true, generator.errors !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YYOU !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YYOU.name === 'ILoveYou');
+    assert.equal(true, generator.errors.I_LOVE_YYOU.message === 'I Love U!');
 
     var localized = generator.errors.ILoveYou.localize('zh-CN');
     assert.equal(true, localized.message === '我爱你！');
