@@ -58,7 +58,7 @@ var errors = new Generator(json, 'zh-CN').errors;
 //errors.ILoveYou.message
 //errors.ILoveYou.restify()
 
-//Generate errors and name toUpper
+//Generate errors with names in upper case
 var errors = new Generator(json, 'zh-CN', true).errors;
 //errors.I_LOVE_YOU
 //errors.I_LOVE_YOU.name
