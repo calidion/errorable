@@ -61,6 +61,14 @@ var errors = new Generator(json, 'zh-CN').errors;
 //errors.ILoveYou.message
 //errors.ILoveYou.restify()
 
+//错误名称大写
+var errors = new Generator(json, 'zh-CN', true).errors;
+//errors.I_LOVE_YOU
+//errors.I_LOVE_YOU.name
+//errors.I_LOVE_YOU.code
+//errors.I_LOVE_YOU.message
+//errors.I_LOVE_YOU.restify()
+
 //错误临时生成
 
 var Errorable = errorable.Errorable;

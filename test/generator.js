@@ -45,6 +45,24 @@ describe('Generator', function() {
     var cloned = generator.errors.ILoveYou.localize('zh-CN', true);
     assert.notDeepEqual(generator.errors.ILoveYou, cloned);
 
+    generator = new Generator(json, 'zh-CN', true);
+    assert.equal(true, generator.errors !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YOU !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
+    assert.equal(true, generator.errors.I_LOVE_YOU.message === '我爱你！');
+    generator = new Generator(json, 'en-US', true);
+    assert.equal(true, generator.errors !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YOU !== undefined);
+    assert.equal(true, generator.errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
+    assert.equal(true, generator.errors.I_LOVE_YOU.message === 'I Love U!');
+
+    localized = generator.errors.I_LOVE_YOU.localize('zh-CN');
+    assert.equal(true, localized.message === '我爱你！');
+    assert.deepEqual(generator.errors.I_LOVE_YOU, localized);
+    cloned = generator.errors.I_LOVE_YOU.localize('zh-CN', true);
+    assert.notDeepEqual(generator.errors.I_LOVE_YOU, cloned);
+
+
     var error = {
       History: {
         Not: {
