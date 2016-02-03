@@ -100,6 +100,13 @@ throw error;
 * 错误名称直接使用字符串，可在做到语言无关，在所有的项目中通用，并且可以唯一标识
 
 
+### 可用的错误  
+通用错误库：  
+https://github.com/Errorable/common  
+HTTP错误库：  
+https://github.com/Errorable/http  
+
+
 ## License
 
 MIT © [calidion](blog.3gcnbeta.com)
