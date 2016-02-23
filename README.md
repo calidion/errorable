@@ -1,3 +1,4 @@
+[![Beerpay](https://beerpay.io/calidion/errorable/badge.svg?style=flat-square)](https://beerpay.io/calidion/errorable)
 # errorable [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 [English](./README.en.md)
