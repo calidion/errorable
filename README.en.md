@@ -102,6 +102,37 @@ https://github.com/Errorable/common
 HTTP Errors：  
 https://github.com/Errorable/http  
 
+### As a middleware
+#### Express middleware
+source：
+https://github.com/Errorable/express-middleware
+
+```js
+var errorableExpress = require('errorable-express');
+var common = require('errorable-common');
+var errorable = require('errorable');
+var Generator = errorable.Generator;
+var errors = new Generator(common, 'zh-CN').errors;
+
+express.use(errorableExpress(errors));
+
+express.get('/', function indexxx(req, res) {
+  res.restify(res.errors.Success);
+});
+express.get('/message', function messagexx(req, res) {
+  res.restify(res.errors.Success, message);
+});
+
+express.get('/unknown', function unknownxx(req, res) {
+  res.restify();
+});
+
+express.get('/errorize', function errorizexx(req, res) {
+  //restify === errorize
+  res.errorize();
+});
+```
+
 ## License
 
 MIT © [calidion](blog.3gcnbeta.com)
