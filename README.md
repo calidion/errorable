@@ -137,6 +137,11 @@ express.get('/errorize', function errorizexx(req, res) {
 });
 ```
 
+
+## 如何编写自己的错误
+
+详情请查看[这里](https://github.com/calidion/errorable/wiki/%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E9%94%99%E8%AF%AF)
+
 ## License
 
 MIT © [calidion](blog.3gcnbeta.com)
