@@ -54,8 +54,7 @@ var json = {
 };
 
 //错误批量生成
-var Generator = errorable.Generator;
-var errors = new Generator(json, 'zh-CN').errors;
+var errors = errorable.get(json, 'zh-CN');
 //errors.ILoveYou
 //errors.ILoveYou.name
 //errors.ILoveYou.code
@@ -63,7 +62,7 @@ var errors = new Generator(json, 'zh-CN').errors;
 //errors.ILoveYou.restify()
 
 //错误名称大写
-var errors = new Generator(json, 'zh-CN', true).errors;
+var errors = errorable.get(json, 'zh-CN', true);
 //errors.I_LOVE_YOU
 //errors.I_LOVE_YOU.name
 //errors.I_LOVE_YOU.code
