@@ -91,11 +91,16 @@ describe('get', function() {
   assert.equal(true, errors.ILoveYou instanceof Errorable);
   assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
   assert.equal(true, errors.ILoveYou.message === '我爱你！');
-  var errors = errorable.get(json, 'en-US');
+  errors = errorable.get(json, 'en-US');
   assert.equal(true, errors !== undefined);
   assert.equal(true, errors.ILoveYou instanceof Errorable);
   assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
   assert.equal(true, errors.ILoveYou.message === 'I Love U!');
+  errors = errorable.get(json, 'en-US', true);
+  assert.equal(true, errors !== undefined);
+  assert.equal(true, errors.I_LOVE_YOU !== undefined);
+  assert.equal(true, errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
+  assert.equal(true, errors.I_LOVE_YOU.message === 'I Love U!');
 });
 
 describe('Index', function() {
