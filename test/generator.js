@@ -84,6 +84,20 @@ describe('Generator', function() {
   });
 });
 
+describe('get', function() {
+
+  var errors = errorable.get(json);
+  assert.equal(true, errors !== undefined);
+  assert.equal(true, errors.ILoveYou instanceof Errorable);
+  assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
+  assert.equal(true, errors.ILoveYou.message === '我爱你！');
+  var errors = errorable.get(json, 'en-US');
+  assert.equal(true, errors !== undefined);
+  assert.equal(true, errors.ILoveYou instanceof Errorable);
+  assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
+  assert.equal(true, errors.ILoveYou.message === 'I Love U!');
+});
+
 describe('Index', function() {
   it('Should generate errors', function() {
     assert.equal(true, errorable.Errorable === Errorable);
