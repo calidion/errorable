@@ -29,12 +29,5 @@ describe('Errorable', function() {
 
     var string = error.toString();
     assert.equal(true, string === String('[' + options.name + '] => {message: ' + message + '}'));
-
-    var options2 = {
-      code: 0
-    };
-    var error2 = new Errorable(options2);
-    assert.equal(true, error2.locale === 'zh-CN');
-    assert.equal(true, error2.code === 0);
   });
 });

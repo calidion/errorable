@@ -28,40 +28,49 @@ var json = {
 describe('Generator', function() {
   it('Should generate errors', function() {
     var generator = new Generator(json, 'zh-CN');
-    assert.equal(true, generator.errors !== undefined);
-    assert.equal(true, generator.errors.ILoveYou !== undefined);
-    assert.equal(true, generator.errors.ILoveYou.name === 'ILoveYou');
-    assert.equal(true, generator.errors.ILoveYou.message === '我爱你！');
+    var errors = generator.errors;
+    var functions = generator.functions;
+
+    assert.equal(true, errors !== undefined);
+    assert.equal(true, errors.ILoveYou !== undefined);
+
+    // assert.equal(true, errors.ILoveYou instanceof functions.ILoveYou);
+    assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
+    assert.equal(true, errors.ILoveYou.message === '我爱你！');
     generator.save('./lib/data/errors.json');
     generator = new Generator(json, 'en-US');
-    assert.equal(true, generator.errors !== undefined);
-    assert.equal(true, generator.errors.ILoveYou !== undefined);
-    assert.equal(true, generator.errors.ILoveYou.name === 'ILoveYou');
-    assert.equal(true, generator.errors.ILoveYou.message === 'I Love U!');
+    errors = generator.errors;
+    functions = generator.functions;
 
-    var localized = generator.errors.ILoveYou.localize('zh-CN');
+    assert.equal(true, errors !== undefined);
+    assert.equal(true, errors.ILoveYou !== undefined);
+    assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
+    assert.equal(true, errors.ILoveYou.message === 'I Love U!');
+
+    var localized = errors.ILoveYou.localize('zh-CN');
     assert.equal(true, localized.message === '我爱你！');
-    assert.deepEqual(generator.errors.ILoveYou, localized);
-    var cloned = generator.errors.ILoveYou.localize('zh-CN', true);
-    assert.notDeepEqual(generator.errors.ILoveYou, cloned);
+    assert.deepEqual(errors.ILoveYou, localized);
+    var cloned = errors.ILoveYou.localize('zh-CN', true);
+    assert.notDeepEqual(errors.ILoveYou, cloned);
 
     generator = new Generator(json, 'zh-CN', true);
-    assert.equal(true, generator.errors !== undefined);
-    assert.equal(true, generator.errors.I_LOVE_YOU !== undefined);
-    assert.equal(true, generator.errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
-    assert.equal(true, generator.errors.I_LOVE_YOU.message === '我爱你！');
+    errors = generator.errors;
+    assert.equal(true, errors !== undefined);
+    assert.equal(true, errors.I_LOVE_YOU !== undefined);
+    assert.equal(true, errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
+    assert.equal(true, errors.I_LOVE_YOU.message === '我爱你！');
     generator = new Generator(json, 'en-US', true);
-    assert.equal(true, generator.errors !== undefined);
-    assert.equal(true, generator.errors.I_LOVE_YOU !== undefined);
-    assert.equal(true, generator.errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
-    assert.equal(true, generator.errors.I_LOVE_YOU.message === 'I Love U!');
+    errors = generator.errors;
+    assert.equal(true, errors !== undefined);
+    assert.equal(true, errors.I_LOVE_YOU !== undefined);
+    assert.equal(true, errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
+    assert.equal(true, errors.I_LOVE_YOU.message === 'I Love U!');
 
-    localized = generator.errors.I_LOVE_YOU.localize('zh-CN');
+    localized = errors.I_LOVE_YOU.localize('zh-CN');
     assert.equal(true, localized.message === '我爱你！');
-    assert.deepEqual(generator.errors.I_LOVE_YOU, localized);
-    cloned = generator.errors.I_LOVE_YOU.localize('zh-CN', true);
-    assert.notDeepEqual(generator.errors.I_LOVE_YOU, cloned);
-
+    assert.deepEqual(errors.I_LOVE_YOU, localized);
+    cloned = errors.I_LOVE_YOU.localize('zh-CN', true);
+    assert.notDeepEqual(errors.I_LOVE_YOU, cloned);
 
     var error = {
       History: {
@@ -85,15 +94,13 @@ describe('Generator', function() {
 });
 
 describe('get', function() {
-
   var errors = errorable.get(json);
   assert.equal(true, errors !== undefined);
-  assert.equal(true, errors.ILoveYou instanceof Errorable);
+
   assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
   assert.equal(true, errors.ILoveYou.message === '我爱你！');
   errors = errorable.get(json, 'en-US');
   assert.equal(true, errors !== undefined);
-  assert.equal(true, errors.ILoveYou instanceof Errorable);
   assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
   assert.equal(true, errors.ILoveYou.message === 'I Love U!');
   errors = errorable.get(json, 'en-US', true);
