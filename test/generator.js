@@ -20,8 +20,7 @@ var json = {
   },
   Hello: {
     code: 100,
-    messages: {
-    }
+    messages: {}
   }
 };
 
@@ -110,6 +109,30 @@ describe('get', function() {
   assert.equal(true, errors.I_LOVE_YOU !== undefined);
   assert.equal(true, errors.I_LOVE_YOU.name === 'I_LOVE_YOU');
   assert.equal(true, errors.I_LOVE_YOU.message === 'I Love U!');
+});
+
+describe('Make an Error', function() {
+  it('Should make an error', function() {
+    var ErrorFunc = errorable.makeAnError({
+      name: 'UserNotFound', //Sequential Error Description
+      prefix: 'java', //Prefix for Messages
+      code: 404, //Numeric value for this error
+      messages: {
+        'zh-CN': '用户未定义',
+        'en-US': 'User is not found!'
+      }, //Customized Error Messsage
+      locale: 'en-US' //Locale for errors
+    });
+    assert.equal('function', typeof ErrorFunc);
+
+    var error = new ErrorFunc();
+
+    assert.equal('UserNotFound', error.name);
+    assert.equal(404, error.code);
+    assert.equal('java:User is not found!', error.message);
+    assert.deepEqual({ code: 404, message: 'java:User is not found!', name: 'UserNotFound'},
+     error.restify());
+  });
 });
 
 describe('Index', function() {

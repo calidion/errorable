@@ -53,7 +53,16 @@ var json = {
   }
 };
 
-//错误批量生成
+//得到生成器，并得到所有的错误与错误函数
+var generator = new Generator(json, 'zh-CN');
+var errors = generator.errors;
+var functions = generator.functions;
+
+//抛出一个函数
+throw new functions.ILoveYou();
+
+
+//批量生成错误对象
 var errors = errorable.get(json, 'zh-CN');
 //errors.ILoveYou
 //errors.ILoveYou.name
@@ -69,10 +78,8 @@ var errors = errorable.get(json, 'zh-CN', true);
 //errors.I_LOVE_YOU.message
 //errors.I_LOVE_YOU.restify()
 
-//错误临时生成
-
-var Errorable = errorable.Errorable;
-var error = new Errorable({
+//错误临时生成(不建议)
+var ErrorFunc = errorable.makeAnError({
       name: 'UserNotFound',                 //Sequential Error Description
       prefix: 'java',                       //Prefix for Messages
       code: 404,                            //Numeric value for this error
@@ -82,6 +89,7 @@ var error = new Errorable({
       } ,        //Customized Error Messsage
       locale: 'en-US',                      //Locale for errors
     });
+var error = new ErrorFunc().restify();
 //error.name => "UserNotFound"
 //error.code => 404
 //error.message => "java:User is not found!"
