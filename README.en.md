@@ -49,6 +49,16 @@ var json = {
   }
 };
 
+
+//Get the generator，get all errors and functions
+var generator = errorable.Generator(json, 'zh-CN');
+var errors = generator.errors;
+var functions = generator.functions;
+
+//Throw an error
+throw new functions.ILoveYou();
+
+
 //Generate errors
 var Generator = errorable.Generator;
 var errors = new Generator(json, 'zh-CN').errors;
@@ -67,9 +77,7 @@ var errors = new Generator(json, 'zh-CN', true).errors;
 //errors.I_LOVE_YOU.restify()
 
 //New A Customized Error
-
-var Errorable = errorable.Errorable;
-var error = new Errorable({
+var ErrorFunc = errorable.makeAnError({
       name: 'UserNotFound',                 //Sequential Error Description
       prefix: 'java',                       //Prefix for Messages
       code: 404,                            //Numeric value for this error
@@ -79,6 +87,7 @@ var error = new Errorable({
       } ,        //Customized Error Messsage
       locale: 'en-US',                      //Locale for errors
     });
+var error = new ErrorFunc();
 //error.name => "UserNotFound"
 //error.code => 404
 //error.message => "java:User is not found!"
