@@ -31,10 +31,12 @@ describe('Generator', function() {
     var errors = generator.errors;
     var functions = generator.functions;
 
+    var ily = new functions.ILoveYou();
+
     assert.equal(true, errors !== undefined);
     assert.equal(true, errors.ILoveYou !== undefined);
 
-    // assert.equal(true, errors.ILoveYou instanceof functions.ILoveYou);
+    assert.deepEqual(ily.restify(), errors.ILoveYou.restify());
     assert.equal(true, errors.ILoveYou.name === 'ILoveYou');
     assert.equal(true, errors.ILoveYou.message === '我爱你！');
     generator.save('./lib/data/errors.json');
