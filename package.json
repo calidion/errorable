@@ -21,7 +21,7 @@
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babelify": "^7.2.0",
-    "del": "^2.0.2",
+    "del": "^2.2.1",
     "gulp": "^3.6.0",
     "gulp-babel": "^6.1.2",
     "gulp-browserify": "^0.5.1",
