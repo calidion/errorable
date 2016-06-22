@@ -33,7 +33,7 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "gulp-concat": "^2.6.0",
-    "gulp-uglify": "^1.5.1",
+    "gulp-uglify": "^1.5.4",
     "isparta": "^4.0.0",
     "watchify": "^3.6.1"
   },
