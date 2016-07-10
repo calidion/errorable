@@ -68,7 +68,7 @@ var errors = errorable.get(json, 'zh-CN');
 //errors.ILoveYou.name
 //errors.ILoveYou.code
 //errors.ILoveYou.message
-//errors.ILoveYou.restify()
+//errors.ILoveYou.purify()
 
 //错误名称大写
 var errors = errorable.get(json, 'zh-CN', true);
@@ -76,7 +76,7 @@ var errors = errorable.get(json, 'zh-CN', true);
 //errors.I_LOVE_YOU.name
 //errors.I_LOVE_YOU.code
 //errors.I_LOVE_YOU.message
-//errors.I_LOVE_YOU.restify()
+//errors.I_LOVE_YOU.purify()
 
 //错误临时生成(不建议)
 var ErrorFunc = errorable.makeAnError({
@@ -89,11 +89,11 @@ var ErrorFunc = errorable.makeAnError({
       } ,        //Customized Error Messsage
       locale: 'en-US',                      //Locale for errors
     });
-var error = new ErrorFunc().restify();
+var error = new ErrorFunc().purify();
 //error.name => "UserNotFound"
 //error.code => 404
 //error.message => "java:User is not found!"
-//error.restify() => { code: 404, message: "java:User is not found!", name: 'UserNotFound'}
+//error.purify() => { code: 404, message: "java:User is not found!", name: 'UserNotFound'}
 ```
 
 ### 抛出错误
@@ -118,6 +118,7 @@ https://github.com/Errorable/http
 #### Express中间件
 源码地址：
 https://github.com/Errorable/express-middleware
+
 ```js
 var errorableExpress = require('errorable-express');
 var common = require('errorable-common');
