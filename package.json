@@ -1,45 +1,53 @@
 {
   "name": "errorable",
-  "version": "0.4.0",
-  "description": "General javascript errors generator and definition",
-  "homepage": "",
+  "version": "0.5.0",
+  "description": "errorable",
+  "license": "MIT",
+  "repository": "",
   "author": {
-    "name": "calidion",
-    "email": "calidion@gmail.com",
-    "url": "blog.3gcnbeta.com"
+    "name": "",
+    "email": "",
+    "url": ""
   },
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
   "keywords": [
-    "errors",
-    "javascript",
-    "generator"
+    "error",
+    "typescript"
   ],
-  "repository": "calidion/errorable",
-  "devDependencies": {
-    "babel-core": "^5.5.0",
-    "babelify": "^7.2.0",
-    "del": "^2.2.1",
-    "gulp": "^3.6.0",
-    "gulp-babel": "^5.1.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-coveralls": "^0.1.0",
-    "gulp-eslint": "^1.0.0",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^0.9.0",
-    "gulp-mocha": "^2.0.0",
-    "gulp-nsp": "^2.1.0",
-    "gulp-plumber": "^1.0.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-uglify": "^1.5.4",
-    "isparta": "^3.0.3",
-    "watchify": "^3.6.1"
-  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index",
+  "types": "lib/index",
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "clean": "rimraf lib && rimraf coverage",
+    "format": "prettier --write \"{src,__tests__}/**/*.ts\" --trailing-comma es5",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build",
+    "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
+    "build": "tsc --pretty",
+    "test": "npm run build && jest --coverage",
+    "coverage": "jest --coverage",
+    "watch": "npm run build -- --watch",
+    "watch:test": "jest --watch"
   },
-  "license": "MIT"
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^23.3.3",
+    "@types/node": "^10.11.4",
+    "coveralls": "^3.0.2",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.7.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  }
 }
