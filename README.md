@@ -6,11 +6,13 @@ Create javascript errors in a smart & simple way.
 
 # Usage
 
-## defines a IErrorOptions object
+## Defines an IErrorOptions object
 
 > JSON files are totally ok for ease of maintance.
 
 ```ts
+import { IErrorOptions } from "errorable";
+
 const json: IErrorOptions = {
   Hello: {
     code: 100,
@@ -33,10 +35,12 @@ const json: IErrorOptions = {
 };
 ```
 
-## Generate Errors
+## Generate errors
 
 ```ts
-const errors = Generator.generate(json);
+import { Generator } from "errorable";
+
+const errors: any = Generator.generate(json);
 
 // Got three errors:
 // errors.ILoveYou
@@ -47,7 +51,8 @@ const errors = Generator.generate(json);
 or
 
 ```ts
-const errors = Generator.generate(json, true);
+import { Generator } from "errorable";
+const errors: any = Generator.generate(json, true);
 
 // Got three errors:
 // errors.I_LOVE_YOU
