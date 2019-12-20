@@ -1,6 +1,13 @@
+import * as fs from "fs";
 import { IErrorOptions, LocalizedError } from "./localized-error";
 
 export class Generator {
+  public static load(jsonFilenanme: string) {
+    return JSON.parse(String(fs.readFileSync(jsonFilenanme)));
+  }
+  public static save(jsonFilenanme: string, json: object) {
+    return fs.writeFileSync(jsonFilenanme, JSON.stringify(json));
+  }
   public static capitalize(str: string, upperCase: boolean = false) {
     if (!upperCase) {
       return str[0].toUpperCase() + str.substring(1).toLowerCase();

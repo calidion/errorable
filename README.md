@@ -42,10 +42,9 @@ const errors = Generator.generate(json);
 // errors.ILoveYou
 // errors.MeLoveYou
 // errors.Hello
-
 ```
 
-or 
+or
 
 ```ts
 const errors = Generator.generate(json, true);
@@ -54,7 +53,6 @@ const errors = Generator.generate(json, true);
 // errors.I_LOVE_YOU
 // errors.ME_LOVE_YOU
 // errors.HELLO
-
 ```
 
 ## Create and throw localized errors
@@ -63,6 +61,21 @@ const errors = Generator.generate(json, true);
 const { ILoveYou, Hello } = errors;
 throw new ILoveYou("zh-CN");
 throw new Hello("en-US");
+```
+
+## Load from or save to files
+
+```ts
+const jsonFilename = path.resolve(__dirname, "./tmp.json");
+
+// Saving json to files
+Generator.save(jsonFilename, json);
+
+// Loading json from files
+const newJson = Generator.load(jsonFilename);
+
+// json equals newJson
+expect(json).toEqual(newJson);
 ```
 
 # License

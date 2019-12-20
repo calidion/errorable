@@ -1,3 +1,5 @@
+import * as fs from "fs";
+import * as path from "path";
 import { Generator } from "../src/generator";
 import { IErrorOptions } from "../src/localized-error";
 
@@ -52,5 +54,15 @@ describe("Testing Generator", () => {
       catched = true;
     }
     expect(catched).toBeTruthy();
+  });
+
+  test("Should load from / save to json files", () => {
+    const jsonFilename = path.resolve(__dirname, "./tmp.json");
+    Generator.save(jsonFilename, json);
+
+    const newJson = Generator.load(jsonFilename);
+
+    expect(json).toEqual(newJson);
+    fs.unlinkSync(jsonFilename);
   });
 });
